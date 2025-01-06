@@ -1,101 +1,130 @@
-import Image from "next/image";
+"use client";
+
+import React, { useState } from "react";
+import { ChairObj, ComputerObj, ComputerType } from "./types";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [chairs] = useState<ChairObj[]>([
+    {
+      id: 1,
+      name: "A1",
+      computers: [
+        { id: 91, type: ComputerType.NATIV_RAKIA },
+        { id: 92, type: ComputerType.ONE_AMAN },
+        { id: 93, type: ComputerType.ROMAH },
+        { id: 94, type: ComputerType.SHVIL },
+      ],
+    },
+    {
+      id: 2,
+      name: "A2",
+      computers: [{ id: 94, type: ComputerType.SHVIL }],
+    },
+    {
+      id: 3,
+      name: "A3",
+      computers: [
+        { id: 91, type: ComputerType.NATIV_RAKIA },
+        { id: 94, type: ComputerType.SHVIL },
+      ],
+    },
+    {
+      id: 4,
+      name: "A4",
+      computers: [{ id: 92, type: ComputerType.ONE_AMAN }],
+    },
+    // {
+    //   id: 5,
+    //   name: "A5",
+    //   computers: [
+    //     { id: 91, type: ComputerType.NATIV_RAKIA },
+    //     { id: 92, type: ComputerType.ONE_AMAN },
+    //     { id: 93, type: ComputerType.ROMAH },
+    //     { id: 94, type: ComputerType.SHVIL },
+    //   ],
+    // },
+    // {
+    //   id: 6,
+    //   name: "A6",
+    //   computers: [
+    //     { id: 91, type: ComputerType.NATIV_RAKIA },
+    //     { id: 92, type: ComputerType.ONE_AMAN },
+    //     { id: 93, type: ComputerType.ROMAH },
+    //     { id: 94, type: ComputerType.SHVIL },
+    //   ],
+    // },
+    // {
+    //   id: 7,
+    //   name: "A7",
+    //   computers: [
+    //     { id: 91, type: ComputerType.NATIV_RAKIA },
+    //     { id: 92, type: ComputerType.ONE_AMAN },
+    //     { id: 93, type: ComputerType.ROMAH },
+    //     { id: 94, type: ComputerType.SHVIL },
+    //   ],
+    // },
+    // {
+    //   id: 8,
+    //   name: "A8",
+    //   computers: [
+    //     { id: 91, type: ComputerType.NATIV_RAKIA },
+    //     { id: 92, type: ComputerType.ONE_AMAN },
+    //     { id: 93, type: ComputerType.ROMAH },
+    //     { id: 94, type: ComputerType.SHVIL },
+    //   ],
+    // },
+  ]);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+  return (
+    <div className="w-full">
+      <SeatingRow data={chairs} />
     </div>
   );
 }
+
+export const SeatingRow = (props: { data: ChairObj[] }) => {
+  return (
+    <div className="flex w-full justify-center gap-4">
+      {props.data.map((item) => (
+        <ChairWithComputers key={`chair_${item.id}`} data={item} />
+      ))}
+    </div>
+  );
+};
+
+export const ChairWithComputers = (props: { data: ChairObj }) => {
+  return (
+    <div className="flex flex-col items-center justify-center gap-4">
+      <Chair data={props.data} />
+      <Computers data={props.data.computers} />
+    </div>
+  );
+};
+
+export const Computers = (props: { data: (ComputerObj | null)[] }) => {
+  return (
+    <div className="grid grid-cols-2 grid-rows-2 items-center justify-between gap-2 bg-white p-2.5 rounded-md">
+      {props.data.map((item) => (
+        <ComputersItem key={`computer_${item?.id}`} data={item} />
+      ))}
+    </div>
+  );
+};
+
+export const ComputersItem = (props: { data: ComputerObj | null }) => {
+  return (
+    <div className="flex size-32 flex-col items-center justify-center rounded-lg border-2 border-black p-2 text-center text-xl text-black">
+      {props.data?.id && <span>id: {props.data.id}</span>}
+      {props.data?.type && <span>{props.data?.type}</span>}
+    </div>
+  );
+};
+
+export const Chair = (props: { data: ChairObj }) => {
+  return (
+    <div className="flex size-32 flex-col items-center justify-center gap-2 rounded-full bg-gray-200 text-3xl text-black">
+      <span>id: {props.data.id}</span>
+      <span>{props.data.name}</span>
+    </div>
+  );
+};
